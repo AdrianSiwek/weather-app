@@ -30,3 +30,4 @@ const getWeather = () => {
 }
 
 getWeather()
+button.addEventListener('click', getWeather)
