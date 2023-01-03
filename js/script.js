@@ -45,7 +45,7 @@ const getWeather = () => {
         } else {
             photo.setAttribute('src', './img/unknown.png')
         }
-    })
+    }).catch(()=>warning.textContent = 'Wpisz poprawną nazwę miasta!')
 }
 
 getWeather()
