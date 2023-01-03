@@ -16,7 +16,14 @@ const getWeather = () => {
     const city = input.value || 'London';
     const URL = API_URL + city + API_KEY + API_UNITS;
 
-    axios.get(URL).then(res =>console.log(res))
+    axios.get(URL).then(res => {
+        
+        const temp = res.data.main.temp
+        const hum = res.data.main.humidity
+        cityName.textContent = res.data.name
+        temperature.textContent = Math.floor(temp) + '°C'
+        humidity.textContent = hum
+    })
 }
 
 getWeather()
