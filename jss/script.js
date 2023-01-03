@@ -13,16 +13,19 @@ const API_KEY = '&appid=67a3e85e409e0b539d55bd0f374d6c4b';
 const API_UNITS = '&units=metric';
 
 const getWeather = () => {
-    const city = input.value || 'London';
+    const city = input.value || 'Gdynia';
     const URL = API_URL + city + API_KEY + API_UNITS;
 
     axios.get(URL).then(res => {
         
         const temp = res.data.main.temp
         const hum = res.data.main.humidity
+        const status = Object.assign({}, ...res.data.weather)
+            
         cityName.textContent = res.data.name
         temperature.textContent = Math.floor(temp) + '°C'
-        humidity.textContent = hum
+        humidity.textContent = hum + '%'
+        weather.textContent = status.main
     })
 }
 
